@@ -6,7 +6,7 @@ respuesta JSON de las APIs.
 ## Instalación
 
 Pasos a seguir para la instalación
-$ git clone https://github.com/SerranoMedranoJesus/PIX-O-MATE_LOVING_KITTENS.
-$ cd PIX-O-MATE_LOVING_KITTENS
-$ npm install
-$ npm start
+* git clone https://github.com/SerranoMedranoJesus/PIX-O-MATE_LOVING_KITTENS.
+* cd PIX-O-MATE_LOVING_KITTENS
+* npm install
+* npm start
