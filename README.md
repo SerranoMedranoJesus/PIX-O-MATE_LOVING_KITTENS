@@ -3,6 +3,10 @@
 PIX-O-MATE LOVING KITTENS es una página web formado por usuarios que aman a sus gatos y utilizan esta web para subir las fotos de sus mascotas en álbumes. Este proyecto consiste en mostrar los datos y fotos ya almacenados tal y como vienen en la
 respuesta JSON de las APIs.
 
-## Arranque del proyecto
+## Instalación
 
-Primero clonaremos el proyecto mediante con git clone {enlace_del_repo}. Entraremos en la carpeta donde clonamos el proyecto y ejecutamos npm install para instalar las dependencias. Y para ejecutar el proyecto ejecutaremos npm start con este comando ejecutaremos lo que sería el ng server.
+Pasos a seguir para la instalación
+$ git clone https://github.com/SerranoMedranoJesus/PIX-O-MATE_LOVING_KITTENS.
+$ cd PIX-O-MATE_LOVING_KITTENS
+$ npm install
+$ npm start
