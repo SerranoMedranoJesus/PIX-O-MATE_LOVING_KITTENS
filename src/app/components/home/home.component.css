@@ -1,0 +1,14 @@
+button {
+  background-color: #fff;
+  border: 2px solid #000000;
+  cursor: pointer;
+  height: 150px;
+  margin: 10px;
+  width: 150px;
+}
+
+.container {
+  margin: 40vh auto;
+  text-align: center;
+  width: 100%;
+}
