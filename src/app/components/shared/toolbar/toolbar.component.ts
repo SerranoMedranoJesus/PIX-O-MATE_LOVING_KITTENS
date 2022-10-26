@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ToolbarComponent {
   @Input() title: string | undefined;
+  @Input() favouritesOwners: number = 0;
   catKiller = 0;
-  favourites = 0;
 }

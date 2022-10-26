@@ -1,3 +1,26 @@
-<app-toolbar [title]="'Owners'"></app-toolbar>
+<app-toolbar [title]="'Owners'" [favouritesOwners]="favourite.length"></app-toolbar>
 
-<p>owners works!</p>
+<div class="container">
+  <div id="table" [ngClass]="{'center-detail': owner}">
+    <table id="owners">
+      <tr *ngFor="let owner of owners">
+        <td (click)="detailOwner(owner)">{{ owner.first_name }}, {{ owner.lastname }}, {{ owner.gender }}, {{ owner.status }}</td>
+      </tr>
+    </table>
+    <button (click)="getOwners()">Ver más</button>
+  </div>
+  
+  <div *ngIf="owner" id="detail">
+    <p class="text-detail">{{ owner.first_name }}</p>
+    <p class="text-detail">{{ owner.lastname }}</p>
+    <p class="text-detail">{{ owner.gender }}</p>
+    <p class="text-detail">{{ owner.dob }}</p>
+    <p class="text-detail">{{ owner.email }}</p>
+    <p class="text-detail">{{ owner.phone }}</p>
+    <p class="text-detail website">{{ owner.website }}</p>
+    <p class="text-detail">{{ owner.address }}</p>
+    <p class="text-detail">{{ owner.status }}</p>
+    <button *ngIf="!favourite.includes(owner)" (click)="favouriteOwner()">Añadir a favoritos</button>
+    <button *ngIf="favourite.includes(owner)" id="delete-fav" (click)="favouriteOwner()">Eliminar de favoritos</button>
+  </div>
+</div>
