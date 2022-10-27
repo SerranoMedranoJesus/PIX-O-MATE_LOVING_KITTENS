@@ -1,6 +1,10 @@
 <app-toolbar [title]="'Owners'" [favouritesOwners]="favourite.length"></app-toolbar>
 
-<div class="container">
+<app-loading *ngIf="loading"></app-loading>
+
+<app-error *ngIf="error" [error]="errorObject"></app-error>
+
+<div *ngIf="!loading && !error" class="container">
   <div id="table" [ngClass]="{'center-detail': owner}">
     <table id="owners">
       <tr *ngFor="let owner of owners">

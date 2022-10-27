@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { OwnersComponent } from './components/owners/owners.component';
 import { SearchComponent } from './components/search/search.component';
+
+// Shared Component
+import { ErrorComponent } from './components/shared/error/error.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 
 @NgModule({
@@ -15,7 +19,9 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
     HomeComponent,
     OwnersComponent,
     SearchComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LoadingComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

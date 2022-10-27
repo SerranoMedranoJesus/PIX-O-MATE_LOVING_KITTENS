@@ -12,9 +12,13 @@ export class OwnersComponent {
   owner: Owner | undefined
   favourite: Owner[] = []
   page: number = 0
+  loading: Boolean = false
+  error: Boolean = false
+  errorObject: any = {}
 
 
   constructor( private pixOMate: PixOMateService ) {
+    this.loading = true
     this.getOwners();
   }
 
@@ -32,6 +36,12 @@ export class OwnersComponent {
 
           this.owners.push(owner)
         });
+        this.loading = false
+      }, (err) => {
+        this.error = true;
+        this.loading = false;
+        this.errorObject.message = err.error.error.message;
+        this.errorObject.status = err.error.error.status;
       })
   }
 
