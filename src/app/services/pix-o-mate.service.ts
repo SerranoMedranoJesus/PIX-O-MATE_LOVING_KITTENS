@@ -20,7 +20,8 @@ export class PixOMateService {
     return this.http.get<any>(url, { headers })
   }
 
-  getOwners(page: number) {
+  getOwners(page: number, search?: string) {
+    if (search) return this.getQuery(`users?page=${page}&name=${search}`);
     return this.getQuery(`users?page=${page}`);
   }
 }

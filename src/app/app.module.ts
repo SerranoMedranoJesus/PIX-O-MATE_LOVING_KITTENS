@@ -1,12 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { OwnersComponent } from './components/owners/owners.component';
-import { SearchComponent } from './components/search/search.component';
 
 // Shared Component
 import { ErrorComponent } from './components/shared/error/error.component';
@@ -18,7 +18,6 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
     AppComponent,
     HomeComponent,
     OwnersComponent,
-    SearchComponent,
     ToolbarComponent,
     LoadingComponent,
     ErrorComponent
@@ -26,7 +25,8 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

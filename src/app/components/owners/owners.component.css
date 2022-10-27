@@ -23,8 +23,8 @@
 
 #table {
   display: inline-block;
-  height: 500px;
-  overflow-y: auto;
+  height: 350px;
+  overflow-y: scroll;
   width: 30%;
 }
 
@@ -35,6 +35,13 @@
   position: fixed;
   margin-left: 10px;
   width: 350px;
+}
+
+#search input {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 10px auto;
 }
 
 button {

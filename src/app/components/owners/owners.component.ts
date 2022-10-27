@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Owner } from 'src/app/models/owner';
 import { PixOMateService } from '../../services/pix-o-mate.service';
 
@@ -8,6 +9,7 @@ import { PixOMateService } from '../../services/pix-o-mate.service';
   styleUrls: ['./owners.component.css']
 })
 export class OwnersComponent {
+  titleHeader: string = ''
   owners: Owner[] = []
   owner: Owner | undefined
   favourite: Owner[] = []
@@ -15,16 +17,30 @@ export class OwnersComponent {
   loading: Boolean = false
   error: Boolean = false
   errorObject: any = {}
+  searchText: any = ''
 
 
-  constructor( private pixOMate: PixOMateService ) {
+  constructor( private router: Router, 
+               private pixOMate: PixOMateService ) {
     this.loading = true
     this.getOwners();
+    if (router.url === '/owners') this.titleHeader = 'Owners'
+    else if (router.url === '/search') this.titleHeader = 'Search'
   }
 
-  getOwners() {
-    this.page = this.page+1
-    this.pixOMate.getOwners(this.page)
+  getOwners(changePage: Boolean = true) {
+    let search
+    if (this.searchText.length > 2) search = this.searchText
+    if (this.searchText.length === 0 && !changePage) {
+      this.owners = []
+      this.page = 0
+      changePage = true
+    }
+
+    if(changePage) this.page = this.page+1
+    if(!changePage && search) this.owners = []
+
+    if (changePage || search) this.pixOMate.getOwners(this.page, search)
       .subscribe( res => {
         const min = 10000000;
         const max = 99999999;
@@ -56,4 +72,11 @@ export class OwnersComponent {
     if(this.owner && !this.favourite.includes(this.owner)) this.favourite.push(this.owner);
     else if(this.owner && this.favourite.includes(this.owner)) this.favourite.splice(this.favourite.indexOf(this.owner), 1);
   }
+
+  onScroll(event: any) {
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      console.log("End");
+      this.getOwners();
+    }
+}
 }

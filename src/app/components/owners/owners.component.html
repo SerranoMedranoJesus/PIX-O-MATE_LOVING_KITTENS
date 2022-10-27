@@ -1,17 +1,21 @@
-<app-toolbar [title]="'Owners'" [favouritesOwners]="favourite.length"></app-toolbar>
+<app-toolbar [title]="titleHeader" [favouritesOwners]="favourite.length"></app-toolbar>
 
 <app-loading *ngIf="loading"></app-loading>
 
 <app-error *ngIf="error" [error]="errorObject"></app-error>
 
 <div *ngIf="!loading && !error" class="container">
-  <div id="table" [ngClass]="{'center-detail': owner}">
+
+  <div *ngIf="titleHeader === 'Search'" id="search">
+    <input type="text" [(ngModel)]="searchText" placeholder="Name" (input)="getOwners(false)" />
+  </div>
+
+  <div id="table" [ngClass]="{'center-detail': owner}" (scroll)="onScroll($event)">
     <table id="owners">
       <tr *ngFor="let owner of owners">
         <td (click)="detailOwner(owner)">{{ owner.first_name }}, {{ owner.lastname }}, {{ owner.gender }}, {{ owner.status }}</td>
       </tr>
     </table>
-    <button (click)="getOwners()">Ver más</button>
   </div>
   
   <div *ngIf="owner" id="detail">
